@@ -1,0 +1,10 @@
+const createUser = require("../service/createUser.js");
+
+
+async function createUserController(req,res){
+    
+    await createUser(req.body)
+  res.send("SAVED!!!")
+}
+
+module.exports=createUserController;

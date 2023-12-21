@@ -1,0 +1,7 @@
+const fetchUserData=require('../repository/fetchUserData.js');
+const userProfileController=async (req,res)=>{
+    const username=req.params.username;
+    const user=await fetchUserData(username);
+    res.json(user);
+}
+module.exports=userProfileController;

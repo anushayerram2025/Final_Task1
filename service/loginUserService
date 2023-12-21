@@ -1,0 +1,14 @@
+const fetchUserData =require('../repository/fetchUserData.js');
+const validPassword=require("../auth/validpassword.js");
+const loginUserService=async function(credentials){
+    //fetch user from database
+    const {username,password}=credentials
+    const user= await fetchUserData(username);
+        
+          const token= await validPassword(password,user)
+          //res.set('Authorization', `Bearer ${token}`);
+          //res.redirect('/profile/:username');
+          return token;
+}
+ 
+module.exports=loginUserService;
